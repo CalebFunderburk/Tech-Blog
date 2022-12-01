@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Post, User } = require('../../models')
+const { Post, User, Comment } = require('../../models')
 const withAuth = require('../../utils/auth')
 
 // Get all posts
@@ -13,18 +13,18 @@ router.get('/', (req, res) => {
             'created_at'
         ],
         include: [
-            // {
-            //     model: Comment,
-            //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-            //     include: {
-            //         model: User,
-            //         attributes: ['username']
-            //     }
-            // },
-            // {
-            //     model: User,
-            //     attributes: ['username']
-            // }
+            {
+                model: Comment,
+                attributes: ['id', 'comment', 'user_id', 'post_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
+                model: User,
+                attributes: ['username']
+            }
         ]
     })
         .then(postData => res.json(postData))
@@ -48,18 +48,18 @@ router.get('/:id', (req, res) => {
             'created_at'
         ],
         include: [
-            // {
-            //   model: Comment,
-            //   attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-            //   include: {
-            //     model: User,
-            //     attributes: ['username']
-            //   }
-            // },
-            // {
-            //     model: User,
-            //     attributes: ['username']
-            // }
+            {
+              model: Comment,
+              attributes: ['id', 'comment', 'user_id', 'post_id', 'created_at'],
+              include: {
+                model: User,
+                attributes: ['username']
+              }
+            },
+            {
+                model: User,
+                attributes: ['username']
+            }
         ]
     })
         .then(postData => {
