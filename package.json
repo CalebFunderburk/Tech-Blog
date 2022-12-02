@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "db": "node db/schema.sql"
   },
   "name": "challenge_14",
@@ -28,5 +28,8 @@
     "mysql2": "^2.3.3",
     "sequelize": "^6.26.0",
     "sqlite3": "^5.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }
