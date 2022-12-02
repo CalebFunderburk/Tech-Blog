@@ -51,27 +51,27 @@ router.post('/', withAuth, (req, res) => {
 // Update a post
 router.put('/:id', withAuth, (req, res) => {
     Comment.update(
-      {
-        comment: req.body.comment
-      },
-      {
-        where: {
-          id: req.params.id
+        {
+            comment: req.body.comment
+        },
+        {
+            where: {
+                id: req.params.id
+            }
         }
-      }
     )
-      .then(commentData => {
-        if (!commentData) {
-          res.status(404).json({ message: 'No comment found with this id' })
-          return
-        }
-        res.json(commentData)
-      })
-      .catch(err => {
-        console.log(err)
-        res.status(500).json(err)
-      })
-  })
+        .then(commentData => {
+            if (!commentData) {
+                res.status(404).json({ message: 'No comment found with this id' })
+                return
+            }
+            res.json(commentData)
+        })
+        .catch(err => {
+            console.log(err)
+            res.status(500).json(err)
+        })
+})
 
 // Delete a comment
 router.delete('/:id', withAuth, (req, res) => {
@@ -83,6 +83,25 @@ router.delete('/:id', withAuth, (req, res) => {
         .then(commentData => {
             if (!commentData) {
                 res.status(404).json({ message: 'Comment not found' })
+                return
+            }
+            res.json(commentData)
+        })
+        .catch(err => {
+            console.log(err)
+            res.status(500).json(err)
+        })
+})
+
+router.delete('/section/:id', withAuth, (req, res) => {
+    Comment.destroy({
+        where: {
+            post_id: req.params.id
+        }
+    })
+        .then(commentData => {
+            if (!commentData) {
+                res.status(404).json({ message: 'Comment section not found' })
                 return
             }
             res.json(commentData)

@@ -49,12 +49,12 @@ router.get('/:id', (req, res) => {
         ],
         include: [
             {
-              model: Comment,
-              attributes: ['id', 'comment', 'user_id', 'post_id', 'created_at'],
-              include: {
-                model: User,
-                attributes: ['username']
-              }
+                model: Comment,
+                attributes: ['id', 'comment', 'user_id', 'post_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
             },
             {
                 model: User,
@@ -116,7 +116,6 @@ router.put('/:id', withAuth, (req, res) => {
 
 // Delete a post
 router.delete('/:id', withAuth, (req, res) => {
-    console.log('id', req.params.id)
     Post.destroy({
         where: {
             id: req.params.id
