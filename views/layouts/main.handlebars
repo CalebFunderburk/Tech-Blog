@@ -10,9 +10,11 @@
 <body>
     <div class="container">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-            <h1 class="bi me-2">Tech Talk</h1>
+            <a href='/'><h1 class="bi me-2">Tech Talk</h1></a>
             <div class="col-md-3 text-end">
                 {{#if loggedIn}}
+                <span>Welcome {{ username }}</span>
+                <a href='/dashboard'>Dashboard</a>
                 <button type="button" id="logout-btn" class="btn btn-outline-primary me-2">Logout</button>
                 {{else}}
                 <a href="/login">
@@ -28,6 +30,9 @@
     <main>
         {{{ body }}}
     </main>
+    <footer>
+        Thank you for using Tech Talk
+    </footer>
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
     {{/if}}

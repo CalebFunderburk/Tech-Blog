@@ -1,14 +1,10 @@
 // Imports
 const router = require('express').Router()
 const { User, Post, Comment } = require('../models')
-const withAuth = require('../utils/auth')
 
-// Homepage
-router.get('/', withAuth, (req, res) => {
+// Query data and render homepage
+router.get('/', (req, res) => {
     Post.findAll({
-        where: {
-            user_id: req.session.user_id
-        },
         attributes: [
             'id',
             'title',
@@ -32,7 +28,11 @@ router.get('/', withAuth, (req, res) => {
     })
         .then(postData => {
             const posts = postData.map(post => post.get({ plain: true }))
-            res.render('homepage', { posts, loggedIn: req.session.loggedIn })
+            res.render('homepage', {
+                posts,
+                loggedIn: req.session.loggedIn,
+                username: req.session.username
+            })
         })
         .catch(err => {
             console.log(err)
@@ -49,7 +49,7 @@ router.get('/login', (req, res) => {
     res.render('login')
 })
 
-// Query data for homepgae
+// Query data for single post view
 router.get('/post/:id', (req, res) => {
     Post.findOne({
         where: {
@@ -57,14 +57,15 @@ router.get('/post/:id', (req, res) => {
         },
         attributes: [
             'id',
-            'post_url',
             'title',
+            'body',
+            'user_id',
             'created_at'
         ],
         include: [
             {
                 model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                attributes: ['id', 'comment', 'user_id', 'post_id', 'created_at'],
                 include: {
                     model: User,
                     attributes: ['username']
@@ -86,7 +87,9 @@ router.get('/post/:id', (req, res) => {
 
             res.render('single-post', {
                 post,
-                loggedIn: req.session.loggedIn
+                loggedIn: req.session.loggedIn,
+                username: req.session.username,
+                user_id: req.session.user_id
             })
         })
         .catch(err => {

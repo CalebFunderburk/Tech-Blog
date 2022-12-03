@@ -1,10 +1,17 @@
 const router = require('express').Router()
-const { Comment } = require('../../models')
+const { Comment, User } = require('../../models')
 const withAuth = require('../../utils/auth')
 
 // Get all comments
 router.get('/', (req, res) => {
-    Comment.findAll()
+    Comment.findAll({
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
+    })
         .then(commentData => res.json(commentData))
         .catch(err => {
             console.log(err)
@@ -48,7 +55,7 @@ router.post('/', withAuth, (req, res) => {
     }
 })
 
-// Update a post
+// Update a comment
 router.put('/:id', withAuth, (req, res) => {
     Comment.update(
         {
@@ -93,6 +100,7 @@ router.delete('/:id', withAuth, (req, res) => {
         })
 })
 
+// Delete all comments from a specified post
 router.delete('/section/:id', withAuth, (req, res) => {
     Comment.destroy({
         where: {

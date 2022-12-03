@@ -3,17 +3,17 @@
     <h2>
         Edit Post
     </h2>
+    <div>
+        {{format_date post.created_at}}
+        |
+        <a href='/post/{{post.id}}'>{{post.comments.length}} {{format_plural 'comment' post.comments.length}}</a>
+    </div>
     <form class='edit-post-form'>
         <div>
-            <input name='post-title' type='text' value='{{post.title}}' />
+            <input name='post-title' class='form-control mb-3' type='text' value='{{post.title}}' />
         </div>
         <div>
-            <textarea id="post-body" class='form-control mb-3' name='post-body' rows='5' width='20%'></textarea>
-        </div>
-        <div>
-            {{format_date post.created_at}}
-            |
-            <a href='/post/{{post.id}}'>{{post.comments.length}} {{format_plural 'comment' post.comments.length}}</a>
+            <input id='post-edit' class='form-control mb-3' type='text' value='{{post.body}}' />
         </div>
         <button type='submit'>Save post</button>
         <button type='button' class='delete-post-btn'>Delete post</button>
