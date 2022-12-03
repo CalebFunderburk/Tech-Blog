@@ -1,21 +1,19 @@
-
-<a href='/dashboard'> &larr; To dashboard</a>
-{{> post-info post }}
-{{> comments post.comments }}
-{{#if loggedIn}}
-<form class='comment-form form-control'>
-  <div>
-    <textarea name='comment-body' class='form-control'></textarea>
-  </div>
-  <div id='invisidiv'>
-    <input type='text' name='comment-owner' value='{{user_id}}'/>
-  </div>
-  <div>
-    <button type='submit'>add comment</button>
-  </div>
-</form>
-{{/if}}
-
+<div class='col-8 mx-auto'>  
+  {{> post-info post }}
+  {{> comments post.comments }}
+  {{#if loggedIn}}
+  <form class='comment-form form-control'>
+    <div>
+      <label for='comment-body' class='form-label'>Leave a comment</label>
+      <textarea name='comment-body' class='form-control'></textarea>
+    </div>
+    <div id='invisidiv'>
+      <input type='text' name='comment-owner' value='{{user_id}}'/>
+    </div>
+    <button type='submit' class='btn btn-success mt-2'>add comment</button>
+  </form>
+  {{/if}}
+</div>
 {{#if loggedIn}}
 <script src='/javascript/comment.js'></script>
 {{/if}}
