@@ -1,8 +1,9 @@
-<div>This is the homepage</div>
-<ol class="post-list">
-  {{#each posts as |post|}}
-  <li>
-    {{> post-info post }}
-  </li>
-  {{/each}}
-</ol>
+<div class='col-8 mx-auto'>
+  <ul class='post-list list-unstyled'>
+    {{#each posts as |post|}}
+    <li class='bg-dark text-light my-2 py-1'>
+      {{> post-info post }}
+    </li>
+    {{/each}}
+  </ul>
+</div>
