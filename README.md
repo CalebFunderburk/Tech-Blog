@@ -8,7 +8,7 @@ Tech Talk is a CMS-style blog site where users can create an account and talk ab
 
 https://tech-talk-0.herokuapp.com/
 
-## Built With:
+## Built With
 
 - HTML5
 - CSS3
