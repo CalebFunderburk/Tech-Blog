@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "db": "node db/schema.sql"
   },
   "name": "tech_talk",
