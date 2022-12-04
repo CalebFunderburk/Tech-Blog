@@ -1,4 +1,4 @@
-<section class='col-6 mx-auto pb-5'>
+<section class='col-md-6 col-8 mx-auto pb-5'>
     <h2>Create A New Thought</h2>
   <form class='new-post-form form-control'>
     <div>
@@ -13,14 +13,14 @@
   </form>
 </section>
 {{#if posts.length}}
-<section class='col-6 mx-auto my-5 text-center'>
-  <h3>Your Posts</h3>
+<section class='col-md-6 col-12 mx-auto my-5 text-center'>
+  <h3>Your Thoughts</h3>
   <ul class='list-unstyled'>
     {{#each posts as |post|}}
     <li class='my-4'>
       {{> post-info post}}
     </li>
-    <a href='/dashboard/edit/{{post.id}}' class='edit-link rounded-1 text-light bg-success p-2 my-5'>Edit post</a>
+    <a href='/dashboard/edit/{{post.id}}' class='edit-link rounded-1 text-light bg-success p-2 my-5'>Edit Thought</a>
     {{/each}}
   </ul>
 </section>

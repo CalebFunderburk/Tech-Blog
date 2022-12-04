@@ -10,9 +10,9 @@
 </head>
 <body class='bg-light'>
     <div class='container'>
-        <header class='d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom'>
+        <header class='d-flex flex-wrap align-items-center justify-content-between py-3 mb-4 border-bottom'>
             <a href='/'><h1 class='text-success me-2'>Tech Talk</h1></a>
-            <div class='col-md-3 text-end'>
+            <div class='col-sm-6 col-8 text-end'>
                 {{#if loggedIn}}
                 <p>Welcome <a href='/dashboard'class='fw-bold text-success'>{{ username }}</a></p>
                 <a href='/' class='rounded-1 text-light bg-success p-2 align-middle'>Home</a>
@@ -20,12 +20,8 @@
                 <button type='button' id='logout-btn' class='btn btn-outline-success'>Logout</button>
                 {{else}}
                 <a href='/' class='rounded-1 text-light bg-success p-2 align-middle mx-2'>Home</a>
-                <a href='/login'>
-                    <button type='button' class='btn btn-outline-success me-2'>Login</button>
-                </a>
-                <a href='/login'>
-                    <button type='button' class='btn btn-outline-success'>Sign-up</button>
-                </a>
+                <a href='/login' class='rounded-1 text-light bg-success p-2 align-middle mx-2'>Login</a>
+                <a href='/login' class='rounded-1 text-light bg-success p-2 align-middle mx-2'>Signup</a>
                 {{/if}}
             </div>
         </header>
