@@ -1,14 +1,15 @@
 <article class='post col-8 mx-auto bg-dark text-light rounded-1 my-2 p-3'>
-    <div class="title">
+    <div class='title text-light'>
         <h4>{{ title }}</h4>
     </div>
-    <div class="meta">
-        {{ user.username }}
+    <div class='meta'>
+        <u class='text-success'>{{ user.username }}</u>
         |
-        {{format_date created_at}}
+        <u class='text-light'>{{format_date created_at}}</u>
         |
-        <a href='/post/{{id}}'>{{comments.length}} {{format_plural "comment" comments.length}}</a>
-        <br />
-        <p>{{ body }}</p>
+        <u><a href='/post/{{id}}' class='text-light'>{{comments.length}} {{format_plural 'comment' comments.length}}</a></u>
+        <br/>
+        <p class='bg-secondary text-light rounded-1 mt-1 p-2'>{{ body }}</p>
     </div>
+    <a href='/post/{{id}}' class='rounded-1 text-light bg-success p-2'>View Discussion</a>
 </article>

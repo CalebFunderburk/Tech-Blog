@@ -23,7 +23,7 @@ Tech Talk is a CMS-style blog site where users can create an account and talk ab
 
 ## Screenshot
 
-<!-- Screenshot here -->
+![Screenshot of website](./public/assets/images/screenshot.png)
 
 ## Contributions
 

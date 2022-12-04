@@ -18,7 +18,8 @@ async function signupFormHandler(event) {
         console.log(response)
 
         if (response.ok) {
-            document.location.replace('/')
+            alert("Your account has been created")
+            document.location.replace('/login')
         } else {
             alert(response.statusText)
         }
