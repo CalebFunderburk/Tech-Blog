@@ -13,14 +13,14 @@
   </form>
 </section>
 {{#if posts.length}}
-<section class='col-6 mx-auto'>
+<section class='col-6 mx-auto text-center'>
   <h3>Your Posts</h3>
   <ul class='list-unstyled'>
     {{#each posts as |post|}}
     <li class='my-4'>
       {{> post-info post}}
-      <a href='/dashboard/edit/{{post.id}}' class='edit-link list-unstyled rounded-1 text-light bg-success p-2 my-5'>Edit post</a>
     </li>
+    <a href='/dashboard/edit/{{post.id}}' class='edit-link rounded-1 text-light bg-success p-2 my-5'>Edit post</a>
     {{/each}}
   </ul>
 </section>

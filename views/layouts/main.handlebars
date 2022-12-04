@@ -15,14 +15,16 @@
             <div class="col-md-3 text-end">
                 {{#if loggedIn}}
                 <p>Welcome <a href='/dashboard'class='fw-bold text-success'>{{ username }}</a></p>
-                <a href='/dashboard'>Dashboard</a>
-                <button type="button" id="logout-btn" class="btn btn-outline-success me-2">Logout</button>
+                <a href='/' class='rounded-1 text-light bg-success p-2 align-middle'>Home</a>
+                <a href='/dashboard' class='rounded-1 text-light bg-success p-2 align-middle'>Dashboard</a>
+                <button type="button" id="logout-btn" class="btn btn-outline-success">Logout</button>
                 {{else}}
+                <a href='/' class='rounded-1 text-light bg-success p-2 align-middle mx-2'>Home</a>
                 <a href="/login">
                     <button type="button" class="btn btn-outline-success me-2">Login</button>
                 </a>
-                <a href="/signup">
-                    <button type="button" class="btn btn-success">Sign-up</button>
+                <a href="/login">
+                    <button type="button" class="btn btn-outline-success">Sign-up</button>
                 </a>
                 {{/if}}
             </div>
@@ -31,8 +33,10 @@
     <main>
         {{{ body }}}
     </main>
-    <footer class='text-center mx-auto py-5'>
-        <h4>Thank you for using <a href='/' class='text-success'>Tech Talk</a></h4>
+    <footer class='col-8 mx-auto text-center py-5 border-top'>
+        <h5>Thank you for using <a href='/' class='text-success'>Tech Talk</a></h5>
+        <h5>Made by <a href='https://github.com/CalebFunderburk' target='_blank' class='text-success'>Caleb Funderburk</a></h5>
+        <h6>View this project on <a href='https://github.com/CalebFunderburk/Tech-Talk' target='_blank' class='text-success'>GitHub</a></h6>
     </footer>
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
