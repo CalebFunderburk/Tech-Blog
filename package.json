@@ -1,9 +1,9 @@
 {
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "db": "node db/schema.sql"
   },
-  "name": "challenge_14",
+  "name": "tech_talk",
   "description": "",
   "version": "1.0.0",
   "main": "server.js",
