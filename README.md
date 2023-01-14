@@ -29,7 +29,7 @@ As a user looking for a way to discuss the latest trends in technology, I would 
 - Sequelize
 - NPM Packages
 
-## Deplyed Website
+## Deployed Website
 
 <a href="https://tech-talk-0.herokuapp.com/" target="_blank">Click here</a> to view this application.
 
