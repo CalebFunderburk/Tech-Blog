@@ -12,7 +12,7 @@ As a user looking for a way to discuss the latest trends in technology, I would 
 
 ### Features
 
-* Tech Talk was developed using the MVC Paradigm: Sequalize is used to manage the databse while Handlebars.js allows for the display of dynamic data to users.
+* Tech Talk was developed using the MVC Paradigm: Sequelize is used to manage the database while Handlebars.js allows for the display of dynamic data to users.
 * The application also uses the express-session npm package to authenticate user sessions and conditionally render content on the page.
 * Because this application runs on an Express.js server, it has been deployed using Heroku.
 
